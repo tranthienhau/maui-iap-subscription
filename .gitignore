@@ -1,0 +1,17 @@
+## .NET / MAUI build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.idea/
+
+## macOS
+.DS_Store
+
+## Local capture artifacts
+*.mov
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Design tokens lifted from the Google Stitch "Luminous Flux" design system (design/luminous_flux/DESIGN.md) -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+	<Color x:Key="Primary">#0050cb</Color>
+	<Color x:Key="PrimaryContainer">#0066ff</Color>
+	<Color x:Key="OnPrimary">#ffffff</Color>
+	<Color x:Key="OnPrimaryContainer">#f8f7ff</Color>
+	<Color x:Key="PrimaryFixed">#dae1ff</Color>
+	<Color x:Key="OnPrimaryFixedVariant">#003fa4</Color>
+
+	<Color x:Key="Secondary">#00677f</Color>
+	<Color x:Key="SecondaryContainer">#00ccf9</Color>
+	<Color x:Key="OnSecondaryContainer">#005266</Color>
+
+	<Color x:Key="Tertiary">#a33200</Color>
+	<Color x:Key="TertiaryContainer">#cc4204</Color>
+
+	<Color x:Key="Surface">#fcf9f8</Color>
+	<Color x:Key="SurfaceContainerLowest">#ffffff</Color>
+	<Color x:Key="SurfaceContainerLow">#f6f3f2</Color>
+	<Color x:Key="SurfaceContainer">#f0edec</Color>
+	<Color x:Key="SurfaceContainerHigh">#ebe7e7</Color>
+	<Color x:Key="SurfaceContainerHighest">#e5e2e1</Color>
+
+	<Color x:Key="OnSurface">#1c1b1b</Color>
+	<Color x:Key="OnSurfaceVariant">#424656</Color>
+	<Color x:Key="Outline">#727687</Color>
+	<Color x:Key="OutlineVariant">#c2c6d8</Color>
+
+	<Color x:Key="Error">#ba1a1a</Color>
+	<Color x:Key="ErrorContainer">#ffdad6</Color>
+	<Color x:Key="OnErrorContainer">#93000a</Color>
+
+	<Color x:Key="White">#ffffff</Color>
+	<Color x:Key="Black">#000000</Color>
+
+</ResourceDictionary>

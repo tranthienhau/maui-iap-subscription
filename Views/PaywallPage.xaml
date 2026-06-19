@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:SubscriptionPro.ViewModels"
+             xmlns:models="clr-namespace:SubscriptionPro.Models"
+             x:Class="SubscriptionPro.Views.PaywallPage"
+             x:Name="PageRoot"
+             x:DataType="vm:PaywallViewModel"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource Surface}">
+
+	<Grid RowDefinitions="64,*,Auto">
+
+		<!-- TopAppBar: close / title / Restore -->
+		<Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Padding="20,0" VerticalOptions="Center">
+			<Label Grid.Column="0" Text="✕" FontSize="20" TextColor="{StaticResource Primary}"
+			       VerticalOptions="Center" />
+			<Label Grid.Column="1" Text="Premium Access" Style="{StaticResource HeadlineSm}"
+			       HorizontalOptions="Center" VerticalOptions="Center" />
+			<Label Grid.Column="2" Text="Restore" Style="{StaticResource LabelMd}"
+			       TextColor="{StaticResource Primary}" VerticalOptions="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding RestoreCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+		</Grid>
+
+		<!-- Scrollable content -->
+		<ScrollView Grid.Row="1" Padding="20,8,20,24">
+			<VerticalStackLayout Spacing="0">
+
+				<!-- Hero -->
+				<Border StrokeThickness="0" HeightRequest="124" Margin="0,4,0,14"
+				        StrokeShape="RoundRectangle 24">
+					<Grid>
+						<Grid.Background>
+							<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+								<GradientStop Color="#e9efff" Offset="0.0" />
+								<GradientStop Color="#dbe6ff" Offset="0.55" />
+								<GradientStop Color="#cfeffb" Offset="1.0" />
+							</LinearGradientBrush>
+						</Grid.Background>
+						<Ellipse WidthRequest="120" HeightRequest="120" Fill="{StaticResource PrimaryContainer}"
+						         Opacity="0.92" HorizontalOptions="Center" VerticalOptions="Center" />
+						<Ellipse WidthRequest="60" HeightRequest="60" Fill="{StaticResource SecondaryContainer}"
+						         Opacity="0.55" HorizontalOptions="Center" VerticalOptions="Center"
+						         TranslationX="64" TranslationY="-48" />
+						<Ellipse WidthRequest="34" HeightRequest="34" Fill="{StaticResource White}"
+						         Opacity="0.6" HorizontalOptions="Center" VerticalOptions="Center"
+						         TranslationX="-58" TranslationY="44" />
+						<Label Text="✦" FontSize="52" TextColor="{StaticResource White}"
+						       HorizontalOptions="Center" VerticalOptions="Center" />
+					</Grid>
+				</Border>
+
+				<!-- Headline -->
+				<Label Text="Unlock Everything" Style="{StaticResource DisplayLg}"
+				       HorizontalTextAlignment="Center" />
+				<Label Text="Elevate your experience with professional tools and exclusive features."
+				       Style="{StaticResource BodyMd}" HorizontalTextAlignment="Center"
+				       Margin="24,4,24,18" />
+
+				<!-- Feature list -->
+				<VerticalStackLayout BindableLayout.ItemsSource="{Binding Features}" Spacing="12" Margin="0,0,0,20">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate x:DataType="models:PlanFeature">
+							<Grid ColumnDefinitions="24,*" ColumnSpacing="16">
+								<Border Grid.Column="0" WidthRequest="24" HeightRequest="24"
+								        BackgroundColor="{StaticResource PrimaryFixed}" StrokeThickness="0"
+								        StrokeShape="RoundRectangle 12" VerticalOptions="Start">
+									<Label Text="✓" FontSize="13" FontAttributes="Bold"
+									       TextColor="{StaticResource OnPrimaryFixedVariant}"
+									       HorizontalOptions="Center" VerticalOptions="Center" />
+								</Border>
+								<VerticalStackLayout Grid.Column="1" Spacing="2">
+									<Label Text="{Binding Title}" Style="{StaticResource LabelMd}" />
+									<Label Text="{Binding Subtitle}" Style="{StaticResource LabelSm}" />
+								</VerticalStackLayout>
+							</Grid>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</VerticalStackLayout>
+
+				<!-- Loading skeleton -->
+				<ActivityIndicator IsRunning="{Binding IsLoadingPlans}" IsVisible="{Binding IsLoadingPlans}"
+				                   Color="{StaticResource Primary}" HeightRequest="40" />
+
+				<!-- Plan selection -->
+				<VerticalStackLayout BindableLayout.ItemsSource="{Binding Plans}" Spacing="16"
+				                     IsVisible="{Binding IsLoadingPlans, Converter={StaticResource InvertBool}}">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate x:DataType="models:SubscriptionPlan">
+							<Grid Padding="0,6,0,0">
+								<Border BackgroundColor="{StaticResource SurfaceContainerLowest}"
+								        StrokeShape="RoundRectangle 16" Padding="16">
+									<Border.Stroke>
+										<MultiBinding Converter="{StaticResource SelStroke}">
+											<Binding Path="." />
+											<Binding Path="BindingContext.SelectedPlan" Source="{x:Reference PageRoot}" />
+										</MultiBinding>
+									</Border.Stroke>
+									<Border.StrokeThickness>
+										<MultiBinding Converter="{StaticResource SelThickness}">
+											<Binding Path="." />
+											<Binding Path="BindingContext.SelectedPlan" Source="{x:Reference PageRoot}" />
+										</MultiBinding>
+									</Border.StrokeThickness>
+									<Border.GestureRecognizers>
+										<TapGestureRecognizer
+											Command="{Binding BindingContext.SelectPlanCommand, Source={x:Reference PageRoot}}"
+											CommandParameter="{Binding .}" />
+									</Border.GestureRecognizers>
+									<Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+										<VerticalStackLayout Grid.Column="0" Spacing="2" VerticalOptions="Center">
+											<Label Text="{Binding Title}" Style="{StaticResource LabelMd}" />
+											<HorizontalStackLayout Spacing="4">
+												<Label Text="{Binding LocalizedPrice}" Style="{StaticResource BodyMd}" />
+												<Label Text="{Binding PeriodLabel, StringFormat='/ {0}'}"
+												       Style="{StaticResource BodyMd}" />
+											</HorizontalStackLayout>
+										</VerticalStackLayout>
+										<HorizontalStackLayout Grid.Column="1" Spacing="12" VerticalOptions="Center">
+											<Label Text="{Binding EffectiveRate}" Style="{StaticResource LabelSm}"
+											       TextColor="{StaticResource Tertiary}" VerticalOptions="Center" />
+											<Border WidthRequest="24" HeightRequest="24" StrokeThickness="2"
+											        Stroke="{StaticResource OutlineVariant}"
+											        StrokeShape="RoundRectangle 12" Padding="0">
+												<Ellipse WidthRequest="11" HeightRequest="11"
+												         Fill="{StaticResource Primary}"
+												         HorizontalOptions="Center" VerticalOptions="Center">
+													<Ellipse.IsVisible>
+														<MultiBinding Converter="{StaticResource IsEqual}">
+															<Binding Path="." />
+															<Binding Path="BindingContext.SelectedPlan" Source="{x:Reference PageRoot}" />
+														</MultiBinding>
+													</Ellipse.IsVisible>
+												</Ellipse>
+											</Border>
+										</HorizontalStackLayout>
+									</Grid>
+								</Border>
+
+								<!-- Promo badge -->
+								<Border IsVisible="{Binding BadgeText, Converter={StaticResource NotNull}}"
+								        BackgroundColor="{StaticResource Tertiary}" StrokeThickness="0"
+								        StrokeShape="RoundRectangle 10" Padding="10,3"
+								        HorizontalOptions="Start" VerticalOptions="Start"
+								        Margin="16,0,0,0">
+									<Label Text="{Binding BadgeText}" FontSize="11" FontAttributes="Bold"
+									       TextColor="{StaticResource White}" />
+								</Border>
+							</Grid>
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</VerticalStackLayout>
+
+				<!-- Demo affordance: exercise the error-handling path on a simulator -->
+				<HorizontalStackLayout HorizontalOptions="Center" Spacing="8" Margin="0,16,0,0">
+					<Label Text="Simulate purchase failure (demo)" Style="{StaticResource LabelSm}"
+					       VerticalOptions="Center" />
+					<Switch IsToggled="{Binding SimulateFailure}" OnColor="{StaticResource Primary}" />
+				</HorizontalStackLayout>
+
+			</VerticalStackLayout>
+		</ScrollView>
+
+		<!-- Footer CTA -->
+		<VerticalStackLayout Grid.Row="2" Padding="20,12,20,28" Spacing="12"
+		                     BackgroundColor="{StaticResource Surface}">
+			<Button Text="Continue" Style="{StaticResource PrimaryCta}"
+			        Command="{Binding ContinueCommand}">
+				<Button.Shadow>
+					<Shadow Brush="{StaticResource PrimaryContainer}" Offset="0,8" Radius="20" Opacity="0.30" />
+				</Button.Shadow>
+			</Button>
+			<HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
+				<Label Text="Terms of Service" Style="{StaticResource LabelSm}" />
+				<Label Text="•" Style="{StaticResource LabelSm}" />
+				<Label Text="Privacy Policy" Style="{StaticResource LabelSm}" />
+			</HorizontalStackLayout>
+		</VerticalStackLayout>
+
+		<!-- Processing overlay -->
+		<Grid Grid.RowSpan="3" BackgroundColor="#99000000" IsVisible="{Binding IsProcessing}">
+			<Border BackgroundColor="{StaticResource SurfaceContainerLowest}" StrokeThickness="0"
+			        StrokeShape="RoundRectangle 20" Padding="32,28" HorizontalOptions="Center"
+			        VerticalOptions="Center" WidthRequest="240">
+				<VerticalStackLayout Spacing="16" HorizontalOptions="Center">
+					<ActivityIndicator IsRunning="{Binding IsProcessing}" Color="{StaticResource Primary}" />
+					<Label Text="{Binding ProcessingLabel}" Style="{StaticResource LabelMd}"
+					       HorizontalTextAlignment="Center" />
+				</VerticalStackLayout>
+			</Border>
+		</Grid>
+
+	</Grid>
+</ContentPage>

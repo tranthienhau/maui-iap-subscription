@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Premium Access</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0054d6",
+                    "on-tertiary-container": "#fff6f4",
+                    "primary": "#0050cb",
+                    "tertiary-container": "#cc4204",
+                    "background": "#fcf9f8",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#004e60",
+                    "inverse-surface": "#313030",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#001849",
+                    "on-tertiary-fixed-variant": "#832600",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#4cd6ff",
+                    "tertiary-fixed": "#ffdbd0",
+                    "on-background": "#1c1b1b",
+                    "primary-fixed": "#dae1ff",
+                    "surface-container-highest": "#e5e2e1",
+                    "outline-variant": "#c2c6d8",
+                    "outline": "#727687",
+                    "secondary": "#00677f",
+                    "surface-variant": "#e5e2e1",
+                    "on-primary": "#ffffff",
+                    "surface": "#fcf9f8",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "tertiary-fixed-dim": "#ffb59d",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#003fa4",
+                    "secondary-fixed": "#b7eaff",
+                    "on-surface-variant": "#424656",
+                    "error": "#ba1a1a",
+                    "tertiary": "#a33200",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#ebe7e7",
+                    "primary-container": "#0066ff",
+                    "surface-container": "#f0edec",
+                    "on-secondary-container": "#005266",
+                    "secondary-container": "#00ccf9",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-primary-container": "#f8f7ff",
+                    "surface-container-low": "#f6f3f2",
+                    "inverse-primary": "#b3c5ff",
+                    "on-surface": "#1c1b1b",
+                    "on-secondary-fixed": "#001f28",
+                    "surface-bright": "#fcf9f8",
+                    "on-tertiary-fixed": "#390c00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "stack-lg": "32px",
+                    "section-gap": "48px",
+                    "base": "4px",
+                    "margin-mobile": "20px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "800"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Hanken Grotesk', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .plan-card-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar Section -->
+<header class="bg-surface dark:bg-surface-dim docked full-width top-0 z-50">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full">
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 Active: scale-95 transition-transform flex items-center">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm-mobile text-on-surface">Premium Access</h1>
+<button class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim hover:opacity-80 Active: scale-95 transition-transform">
+                Restore
+            </button>
+</div>
+</header>
+<main class="flex-grow overflow-y-auto px-margin-mobile pb-32">
+<!-- Hero Illustration -->
+<div class="mt-stack-lg mb-stack-lg flex justify-center">
+<div class="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A high-end professional digital illustration representing premium access. A central glowing orb of vibrant primary blue light floats in a minimalist, architectural white space. Soft abstract geometric shapes in secondary cyan and subtle grey drift around the orb, creating a sense of depth and momentum. The lighting is bright and clean, emphasizing a modern light-mode corporate aesthetic that feels trustworthy and exclusive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANo3NrOUZ-M7w2uvVmW6Tx2olTF2EI4idznkSLLOycsEbh5H-qGzCvKep1I0WIC9mEsFr_KoUDbq-uN1PiAjQY89mduzadgnMe7xh3JVUCr2w5ZBkkoY8kSYtGdE5zr3oQffN_948qrr1o3RAWzbclN0ZuLx_CZotVUmg5GMS2bh_frNHa_hylW8EHy8eZ_eaFLXJ5EUPjZ5Bv5QoTsPkicFgF3MTE2Q-o4a8hBvtogl5iyz1-e0pXrDHcyrTNNUbGPVpJjz-9n1M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/40 to-transparent"></div>
+</div>
+</div>
+<!-- Headline & Subheadline -->
+<div class="text-center mb-section-gap">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-2 tracking-tight">Unlock Everything</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mx-auto">Elevate your experience with professional tools and exclusive features.</p>
+</div>
+<!-- Features List -->
+<div class="space-y-stack-md mb-section-gap">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-on-primary-fixed-variant" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Ad-free Experience</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Focus entirely on your content without interruptions.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-on-primary-fixed-variant" style="font-variation-settings: 'FILL' 1;">offline_bolt</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Offline Access</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Download and enjoy your media anytime, anywhere.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-on-primary-fixed-variant" style="font-variation-settings: 'FILL' 1;">high_quality</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Lossless Quality</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Crystal clear high-fidelity audio and 4K visual streaming.</p>
+</div>
+</div>
+</div>
+<!-- Plan Selection -->
+<div class="space-y-stack-md">
+<!-- Monthly Plan -->
+<div class="plan-card-transition relative cursor-pointer border border-outline-variant bg-surface-container-lowest rounded-xl p-stack-md flex justify-between items-center group" id="plan-monthly" onclick="selectPlan('monthly')">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Monthly</span>
+<span class="font-body-md text-body-md text-on-surface-variant">$9.99 / month</span>
+</div>
+<div class="w-6 h-6 border-2 border-outline-variant rounded-full flex items-center justify-center group-[.active]:border-primary group-[.active]:bg-primary">
+<div class="w-2.5 h-2.5 bg-white rounded-full opacity-0 group-[.active]:opacity-100 transition-opacity"></div>
+</div>
+</div>
+<!-- Annual Plan (Best Value) -->
+<div class="plan-card-transition active relative cursor-pointer border-2 border-primary bg-surface-container-lowest rounded-xl p-stack-md flex justify-between items-center group shadow-sm scale-[1.02]" id="plan-annual" onclick="selectPlan('annual')">
+<div class="absolute -top-3 left-4 bg-tertiary px-3 py-1 rounded-full">
+<span class="font-label-sm text-label-sm text-white uppercase tracking-wider">SAVE 50%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Annual</span>
+<span class="font-body-md text-body-md text-on-surface-variant">$59.99 / year</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-tertiary">$4.99/mo</span>
+<div class="w-6 h-6 border-2 border-primary rounded-full flex items-center justify-center bg-primary">
+<div class="w-2.5 h-2.5 bg-white rounded-full opacity-100 transition-opacity"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell & CTA -->
+<footer class="fixed bottom-0 left-0 right-0 z-50">
+<!-- Floating Action Area -->
+<div class="px-margin-mobile pb-6 pt-4 bg-gradient-to-t from-surface via-surface to-transparent">
+<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-xl font-label-md text-label-md shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2 relative overflow-hidden">
+<div class="shimmer absolute inset-0 opacity-20"></div>
+                Continue
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<div class="mt-stack-md flex justify-center gap-gutter text-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline" href="#">Terms of Service</a>
+<span class="text-outline-variant">•</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline" href="#">Privacy Policy</a>
+</div>
+</div>
+<!-- Semantic Navigation Shell (BottomNavBar) -->
+<nav class="bg-surface dark:bg-surface-container shadow-lg dark:shadow-none border-t border-outline-variant dark:border-outline fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-2 h-auto">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-6 py-1 hover:bg-surface-container-highest dark:hover:bg-surface-variant rounded-full transition-all duration-200" onclick="selectPlan('monthly')">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md mt-1">Monthly</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary-fixed dark:text-on-primary-fixed rounded-full px-6 py-1 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all duration-200" onclick="selectPlan('annual')">
+<span class="material-symbols-outlined" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-label-md mt-1">Annual</span>
+</div>
+</nav>
+</footer>
+<script>
+        function selectPlan(planId) {
+            const monthly = document.getElementById('plan-monthly');
+            const annual = document.getElementById('plan-annual');
+            
+            if (planId === 'monthly') {
+                monthly.classList.add('active', 'border-primary', 'border-2', 'scale-[1.02]');
+                monthly.classList.remove('border-outline-variant', 'border');
+                
+                annual.classList.remove('active', 'border-primary', 'border-2', 'scale-[1.02]');
+                annual.classList.add('border-outline-variant', 'border');
+            } else {
+                annual.classList.add('active', 'border-primary', 'border-2', 'scale-[1.02]');
+                annual.classList.remove('border-outline-variant', 'border');
+                
+                monthly.classList.remove('active', 'border-primary', 'border-2', 'scale-[1.02]');
+                monthly.classList.add('border-outline-variant', 'border');
+            }
+            
+            // Haptic-like feedback logic
+            if (window.navigator && window.navigator.vibrate) {
+                window.navigator.vibrate(10);
+            }
+        }
+
+        // Simple scroll observer for fade effects
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.flex.items-start').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

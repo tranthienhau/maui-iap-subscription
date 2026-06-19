@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+	<!-- Global page background uses the warm Stitch surface -->
+	<Style TargetType="Page" ApplyToDerivedTypes="True">
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+	</Style>
+
+	<Style TargetType="Label">
+		<Setter Property="TextColor" Value="{StaticResource OnSurface}" />
+		<Setter Property="FontFamily" Value="Hanken" />
+	</Style>
+
+	<!-- Display / headline / body / label roles from the design system -->
+	<Style x:Key="DisplayLg" TargetType="Label">
+		<Setter Property="FontFamily" Value="HankenBold" />
+		<Setter Property="FontSize" Value="28" />
+		<Setter Property="TextColor" Value="{StaticResource OnSurface}" />
+	</Style>
+
+	<Style x:Key="HeadlineSm" TargetType="Label">
+		<Setter Property="FontFamily" Value="HankenBold" />
+		<Setter Property="FontSize" Value="20" />
+		<Setter Property="TextColor" Value="{StaticResource OnSurface}" />
+	</Style>
+
+	<Style x:Key="BodyMd" TargetType="Label">
+		<Setter Property="FontFamily" Value="Hanken" />
+		<Setter Property="FontSize" Value="16" />
+		<Setter Property="TextColor" Value="{StaticResource OnSurfaceVariant}" />
+	</Style>
+
+	<Style x:Key="LabelMd" TargetType="Label">
+		<Setter Property="FontFamily" Value="HankenSemiBold" />
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="TextColor" Value="{StaticResource OnSurface}" />
+	</Style>
+
+	<Style x:Key="LabelSm" TargetType="Label">
+		<Setter Property="FontFamily" Value="HankenMedium" />
+		<Setter Property="FontSize" Value="12" />
+		<Setter Property="TextColor" Value="{StaticResource OnSurfaceVariant}" />
+	</Style>
+
+	<!-- Primary CTA: solid primary-container, white text, soft lift, full width -->
+	<Style x:Key="PrimaryCta" TargetType="Button">
+		<Setter Property="BackgroundColor" Value="{StaticResource PrimaryContainer}" />
+		<Setter Property="TextColor" Value="{StaticResource OnPrimaryContainer}" />
+		<Setter Property="FontFamily" Value="HankenBold" />
+		<Setter Property="FontSize" Value="16" />
+		<Setter Property="HeightRequest" Value="56" />
+		<Setter Property="CornerRadius" Value="12" />
+		<Setter Property="VisualStateManager.VisualStateGroups">
+			<VisualStateGroupList>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal">
+						<VisualState.Setters>
+							<Setter Property="Scale" Value="1" />
+						</VisualState.Setters>
+					</VisualState>
+					<VisualState x:Name="Pressed">
+						<VisualState.Setters>
+							<Setter Property="Scale" Value="0.98" />
+						</VisualState.Setters>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateGroupList>
+		</Setter>
+	</Style>
+
+	<Style TargetType="Shadow">
+		<Setter Property="Brush" Value="{StaticResource Black}" />
+		<Setter Property="Offset" Value="0,6" />
+		<Setter Property="Radius" Value="18" />
+		<Setter Property="Opacity" Value="0.10" />
+	</Style>
+
+</ResourceDictionary>
